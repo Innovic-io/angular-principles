@@ -1,5 +1,7 @@
 <div class="container-fluid my-5">
 
+  <app-weather-icon [icon]="data?.currently?.icon"></app-weather-icon>
+
   <div class="row">
 
     <div class="col-md-2">
@@ -50,7 +52,7 @@
         </thead>
         <tbody>
         <tr>
-          <th scope="row">{{data?.currently?.time}}</th>
+          <th scope="row">{{data?.currently?.time | date}}</th>
           <td>{{data?.currently?.summary}}</td>
           <td>{{data?.currently?.precipIntensity}}</td>
           <td>{{data?.currently?.precipProbability}}</td>
@@ -110,7 +112,7 @@
         </thead>
         <tbody>
         <tr *ngFor="let item of data?.hourly?.data">
-          <th scope="row">{{item.time}}</th>
+          <th scope="row">{{item.time | date}}</th>
           <td>{{item.summary}}</td>
           <td>{{item.precipIntensity}}</td>
           <td>{{item.precipProbability}}</td>
@@ -179,7 +181,7 @@
         </thead>
         <tbody>
         <tr *ngFor="let item of data?.daily?.data">
-          <th scope="row">{{item.time}}</th>
+          <th scope="row">{{item.time | date}}</th>
           <td>{{item.summary}}</td>
           <td>{{item.sunriseTime}}</td>
           <td>{{item.sunsetTime}}</td>
