@@ -1,0 +1,217 @@
+<div class="container-fluid my-5">
+
+  <div class="row">
+
+    <div class="col-md-2">
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Vremenska prognoza</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{data?.currently?.summary}}</h6>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Geografska širina: {{data?.latitude}}</li>
+          <li class="list-group-item">Geografska dužina: {{data?.longitude}}</li>
+          <li class="list-group-item">Vremenska zona: {{data?.timezone}}</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="col-md-10">
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Vremenska prognoza</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Trenutno</li>
+        </ol>
+      </nav>
+
+      <table class="table table-responsive">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">Vrijeme</th>
+          <th scope="col">Opis</th>
+          <th scope="col">Intenzitet padavina</th>
+          <th scope="col">Mogućnost padavina</th>
+          <th scope="col">Temperatura</th>
+          <th scope="col">Trenutna temperatura</th>
+          <th scope="col">Tačka rosišta</th>
+          <th scope="col">Vlažnost vazduha</th>
+          <th scope="col">Atmosferski pritisak</th>
+          <th scope="col">Brzina vjetra</th>
+          <th scope="col">Jačina vjetra</th>
+          <th scope="col">Otpornost na vjetar</th>
+          <th scope="col">Oblačnost</th>
+          <th scope="col">UV indeks</th>
+          <th scope="col">Vidljivost</th>
+          <th scope="col">Ozonski omotač</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th scope="row">{{data?.currently?.time}}</th>
+          <td>{{data?.currently?.summary}}</td>
+          <td>{{data?.currently?.precipIntensity}}</td>
+          <td>{{data?.currently?.precipProbability}}</td>
+          <td>{{data?.currently?.temperature}}</td>
+          <td>{{data?.currently?.apparentTemperature}}</td>
+          <td>{{data?.currently?.dewPoint}}</td>
+          <td>{{data?.currently?.humidity}}</td>
+          <td>{{data?.currently?.pressure}}</td>
+          <td>{{data?.currently?.windSpeed}}</td>
+          <td>{{data?.currently?.windGust}}</td>
+          <td>{{data?.currently?.windBearing}}</td>
+          <td>{{data?.currently?.cloudCover}}</td>
+          <td>{{data?.currently?.uvIndex}}</td>
+          <td>{{data?.currently?.visibility}}</td>
+          <td>{{data?.currently?.ozone}}</td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+
+  <hr>
+
+  <div class="row">
+
+    <div class="col-md-12">
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Vremenska prognoza</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Po satu</li>
+        </ol>
+      </nav>
+
+      <table class="table table-bordered table-responsive">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">Vrijeme</th>
+          <th scope="col">Opis</th>
+          <th scope="col">Intenzitet padavina</th>
+          <th scope="col">Mogućnost padavina</th>
+          <th scope="col">Temperatura</th>
+          <th scope="col">Trenutna temperatura</th>
+          <th scope="col">Tačka rosišta</th>
+          <th scope="col">Vlažnost vazduha</th>
+          <th scope="col">Atmosferski pritisak</th>
+          <th scope="col">Brzina vjetra</th>
+          <th scope="col">Jačina vjetra</th>
+          <th scope="col">Otpornost na vjetar</th>
+          <th scope="col">Oblačnost</th>
+          <th scope="col">UV indeks</th>
+          <th scope="col">Vidljivost</th>
+          <th scope="col">Ozonski omotač</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of data?.hourly?.data">
+          <th scope="row">{{item.time}}</th>
+          <td>{{item.summary}}</td>
+          <td>{{item.precipIntensity}}</td>
+          <td>{{item.precipProbability}}</td>
+          <td>{{item.temperature}}</td>
+          <td>{{item.apparentTemperature}}</td>
+          <td>{{item.dewPoint}}</td>
+          <td>{{item.humidity}}</td>
+          <td>{{item.pressure}}</td>
+          <td>{{item.windSpeed}}</td>
+          <td>{{item.windGust}}</td>
+          <td>{{item.windBearing}}</td>
+          <td>{{item.cloudCover}}</td>
+          <td>{{item.uvIndex}}</td>
+          <td>{{item.visibility}}</td>
+          <td>{{item.ozone}}</td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-12">
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Vremenska prognoza</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Dnevno</li>
+        </ol>
+      </nav>
+
+      <table class="table table-bordered table-responsive">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">Vrijeme</th>
+          <th scope="col">Opis</th>
+          <th scope="col">Izlazak Sunca</th>
+          <th scope="col">Zalazak Sunca</th>
+          <th scope="col">Faza Mjeseca</th>
+          <th scope="col">Intenzitet padavina</th>
+          <th scope="col">Intenzitet padavina (max)</th>
+          <th scope="col">Vrijeme trajanja padavina (max)</th>
+          <th scope="col">Mogućnost padavina</th>
+          <th scope="col">Akumulacija tokom padavina</th>
+          <th scope="col">Oblik padavina</th>
+          <th scope="col">Najviša temperatura</th>
+          <th scope="col">Vrijeme najviše temperature</th>
+          <th scope="col">Najniža temperatura</th>
+          <th scope="col">Vrijeme najniže temperature</th>
+          <th scope="col">Trenutna najviša temperatura</th>
+          <th scope="col">Trenutna najniža temperatura</th>
+          <th scope="col">Tačka rosišta</th>
+          <th scope="col">Vlažnost vazduha</th>
+          <th scope="col">Atmosferski pritisak</th>
+          <th scope="col">Brzina vjetra</th>
+          <th scope="col">Jačina vjetra</th>
+          <th scope="col">Otpornost na vjetar</th>
+          <th scope="col">Oblačnost</th>
+          <th scope="col">UV indeks</th>
+          <th scope="col">Vidljivost</th>
+          <th scope="col">Ozonski omotač</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of data?.daily?.data">
+          <th scope="row">{{item.time}}</th>
+          <td>{{item.summary}}</td>
+          <td>{{item.sunriseTime}}</td>
+          <td>{{item.sunsetTime}}</td>
+          <td>{{item.moonPhase}}</td>
+          <td>{{item.precipIntensity}}</td>
+          <td>{{item.precipIntensityMax}}</td>
+          <td>{{item.precipIntensityMaxTime}}</td>
+          <td>{{item.precipProbability}}</td>
+          <td>{{item.precipAccumulation}}</td>
+          <td>{{item.precipType}}</td>
+          <td>{{item.temperatureHigh}}</td>
+          <td>{{item.temperatureHighTime}}</td>
+          <td>{{item.temperatureLow}}</td>
+          <td>{{item.temperatureLowTime}}</td>
+          <td>{{item.apparentTemperatureHigh}}</td>
+          <td>{{item.apparentTemperatureLow}}</td>
+          <td>{{item.dewPoint}}</td>
+          <td>{{item.humidity}}</td>
+          <td>{{item.pressure}}</td>
+          <td>{{item.windSpeed}}</td>
+          <td>{{item.windGust}}</td>
+          <td>{{item.windBearing}}</td>
+          <td>{{item.cloudCover}}</td>
+          <td>{{item.uvIndex}}</td>
+          <td>{{item.visibility}}</td>
+          <td>{{item.ozone}}</td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
