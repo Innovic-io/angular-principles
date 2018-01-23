@@ -8,6 +8,8 @@ import { WeatherInfoComponent } from './components/weather-info/weather-info.com
 import { WeatherFooterComponent } from './components/weather-footer/weather-footer.component';
 
 import { WeatherDataService } from './services/weather-data.service';
+import { DatePipe } from './date.pipe';
+import { WeatherIconComponent } from './components/weather-info/weather-icon/weather-icon.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { WeatherDataService } from './services/weather-data.service';
     AppComponent,
     WeatherHeaderComponent,
     WeatherInfoComponent,
-    WeatherFooterComponent
+    WeatherFooterComponent,
+    DatePipe,
+    WeatherIconComponent
   ],
   imports: [
     BrowserModule,
@@ -26,4 +30,4 @@ import { WeatherDataService } from './services/weather-data.service';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
