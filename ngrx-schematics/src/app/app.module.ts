@@ -9,6 +9,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
+import { ToDoEffects } from './effects/to-do.effects';
+
 import { ListComponent } from './components/todo/list/list.component';
 import { FormComponent } from './components/todo/form/form.component';
 
@@ -24,7 +26,10 @@ import { FormComponent } from './components/todo/form/form.component';
     ReactiveFormsModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([AppEffects])
+    EffectsModule.forRoot([
+      AppEffects,
+      ToDoEffects
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

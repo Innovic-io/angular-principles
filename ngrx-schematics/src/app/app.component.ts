@@ -21,7 +21,8 @@ export class AppComponent implements OnInit {
   constructor(private store: Store<State>) {}
 
   ngOnInit() {
-    this.todoList$ = this.store.select('todo').pluck('todos');
+
+    this.todoList$ = this.store.select('todo').pluck('list');
     this.totalTask$ = this.store.select('todo').pluck('total');
   }
 
