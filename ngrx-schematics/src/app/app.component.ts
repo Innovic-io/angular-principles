@@ -21,6 +21,10 @@ export class AppComponent implements OnInit {
   constructor(private store: Store<State>) {}
 
   ngOnInit() {
+    
+    this.store.dispatch({
+      type: ToDoActionTypes.LoadTasks
+    });
 
     this.todoList$ = this.store.select('todo').pluck('list');
     this.totalTask$ = this.store.select('todo').pluck('total');

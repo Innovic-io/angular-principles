@@ -14,6 +14,8 @@ import { ToDoEffects } from './effects/to-do.effects';
 import { ListComponent } from './components/todo/list/list.component';
 import { FormComponent } from './components/todo/form/form.component';
 
+import { ToDoService } from './services/to-do.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,9 @@ import { FormComponent } from './components/todo/form/form.component';
       ToDoEffects
     ])
   ],
-  providers: [],
+  providers: [
+    ToDoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

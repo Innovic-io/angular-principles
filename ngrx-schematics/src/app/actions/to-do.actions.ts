@@ -1,12 +1,26 @@
 import { Action } from '@ngrx/store';
 
 export enum ToDoActionTypes {
+  LoadTasks = '[ToDo] LOAD TASKS',
+  LoadTasksSuccess = '[ToDo] LOAD TASKS SUCCESS',
   AddTask = '[ToDo] ADD TASK',
   AddTaskSuccess = '[ToDo] ADD TASK SUCCESS',
   AddTaskFail = '[ToDo] ADD TASK FAIL',
   RemoveTask = '[ToDo] REMOVE TASK',
   RemoveTaskSuccess = '[ToDo] REMOVE TASK SUCCESS',
   RemoveTaskFail = '[ToDo] REMOVE TASK FAIL'
+}
+
+export class ToDoLoadTasks implements Action {
+  readonly type = ToDoActionTypes.LoadTasks;
+
+  constructor() {}
+}
+
+export class ToDoLoadTasksSuccess implements Action {
+  readonly type = ToDoActionTypes.LoadTasksSuccess;
+
+  constructor(payload: any) {}
 }
 
 export class ToDoAddTask implements Action {
@@ -45,7 +59,9 @@ export class ToDoRemoveTaskFail implements Action {
   constructor(payload: any) {}
 }
 
-export type ToDoActions = ToDoAddTask 
+export type ToDoActions = ToDoLoadTasks
+                        | ToDoLoadTasksSuccess
+                        | ToDoAddTask 
                         | ToDoAddTaskSuccess
                         | ToDoAddTaskFail
                         | ToDoRemoveTaskSuccess

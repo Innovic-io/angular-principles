@@ -15,14 +15,20 @@ export const initialState: State = {
 export function reducer(state = initialState, action: Action): State {
   switch (action.type) {
 
-    case ToDoActionTypes.AddTask:
+    case ToDoActionTypes.LoadTasksSuccess:
+
+      return Object.assign({}, state, {
+        state: action['payload']
+      });
+
+    case ToDoActionTypes.AddTaskSuccess:
       state.list.push(action['payload']);
 
       return Object.assign({}, state, {
         total: state.total + 1
       });
 
-    case ToDoActionTypes.RemoveTask:
+    case ToDoActionTypes.RemoveTaskSuccess:
       state.list = state.list.filter(item => item !== action['payload'])
 
       return Object.assign({}, state, {
