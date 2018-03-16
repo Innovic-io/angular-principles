@@ -5,7 +5,6 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
 
 import { State } from '../reducers/index';
 
@@ -23,8 +22,7 @@ export class ToDoEffects {
     .switchMap((action: todoActions.ToDoLoadTasks) => {
 
       return this.todo.getTasks()
-        .map(response => new todoActions.ToDoLoadTasksSuccess(response))
-        .catch(error => Observable.of(error));      
+        .map(response => new todoActions.ToDoLoadTasksCompleted(response));
     });
 
   @Effect()
@@ -33,8 +31,7 @@ export class ToDoEffects {
     .switchMap((action: todoActions.ToDoAddTask) => {
 
       return this.todo.addTask(action['payload'])
-        .map(response => new todoActions.ToDoAddTaskSuccess(response))
-        .catch(error => Observable.of(new todoActions.ToDoRemoveTaskSuccess(error)));
+        .map(response => new todoActions.ToDoAddTaskCompleted(response));
     });
 
   @Effect()
@@ -43,7 +40,6 @@ export class ToDoEffects {
     .switchMap((action: todoActions.ToDoRemoveTask) => {
 
       return this.todo.removeTask(action['payload'])
-        .map(response => new todoActions.ToDoRemoveTaskSuccess(response))
-        .catch(error => Observable.of(new todoActions.ToDoRemoveTaskSuccess(error)));
+        .map(response => new todoActions.ToDoRemoveTaskCompleted(response));
     });
 }

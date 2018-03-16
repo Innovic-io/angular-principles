@@ -2,23 +2,21 @@ import { Action } from '@ngrx/store';
 
 export enum ToDoActionTypes {
   LoadTasks = '[ToDo] LOAD TASKS',
-  LoadTasksSuccess = '[ToDo] LOAD TASKS SUCCESS',
+  LoadTasksCompleted = '[ToDo] LOAD TASKS COMPLETED',
   AddTask = '[ToDo] ADD TASK',
-  AddTaskSuccess = '[ToDo] ADD TASK SUCCESS',
-  AddTaskFail = '[ToDo] ADD TASK FAIL',
+  AddTaskCompleted = '[ToDo] ADD TASK COMPLETED',
   RemoveTask = '[ToDo] REMOVE TASK',
-  RemoveTaskSuccess = '[ToDo] REMOVE TASK SUCCESS',
-  RemoveTaskFail = '[ToDo] REMOVE TASK FAIL'
+  RemoveTaskCompleted = '[ToDo] REMOVE TASK COMPLETED'
 }
 
 export class ToDoLoadTasks implements Action {
   readonly type = ToDoActionTypes.LoadTasks;
 
-  constructor() {}
+  constructor(payload: any) {}
 }
 
-export class ToDoLoadTasksSuccess implements Action {
-  readonly type = ToDoActionTypes.LoadTasksSuccess;
+export class ToDoLoadTasksCompleted implements Action {
+  readonly type = ToDoActionTypes.LoadTasksCompleted;
 
   constructor(payload: any) {}
 }
@@ -29,14 +27,8 @@ export class ToDoAddTask implements Action {
   constructor(payload: any) {}
 }
 
-export class ToDoAddTaskSuccess implements Action {
-  readonly type = ToDoActionTypes.AddTaskSuccess;
-
-  constructor(payload: any) {}
-}
-
-export class ToDoAddTaskFail implements Action {
-  readonly type = ToDoActionTypes.AddTaskFail;
+export class ToDoAddTaskCompleted implements Action {
+  readonly type = ToDoActionTypes.AddTaskCompleted;
 
   constructor(payload: any) {}
 }
@@ -47,22 +39,14 @@ export class ToDoRemoveTask implements Action {
   constructor(payload: any) {}
 }
 
-export class ToDoRemoveTaskSuccess implements Action {
-  readonly type = ToDoActionTypes.RemoveTaskSuccess;
-
-  constructor(payload: any) {}
-}
-
-export class ToDoRemoveTaskFail implements Action {
-  readonly type = ToDoActionTypes.RemoveTaskFail;
+export class ToDoRemoveTaskCompleted implements Action {
+  readonly type = ToDoActionTypes.RemoveTaskCompleted;
 
   constructor(payload: any) {}
 }
 
 export type ToDoActions = ToDoLoadTasks
-                        | ToDoLoadTasksSuccess
+                        | ToDoLoadTasksCompleted
                         | ToDoAddTask 
-                        | ToDoAddTaskSuccess
-                        | ToDoAddTaskFail
-                        | ToDoRemoveTaskSuccess
-                        | ToDoRemoveTaskFail; 
+                        | ToDoAddTaskCompleted
+                        | ToDoRemoveTaskCompleted; 
