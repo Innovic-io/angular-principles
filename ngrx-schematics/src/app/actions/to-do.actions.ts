@@ -12,41 +12,41 @@ export enum ToDoActionTypes {
 export class ToDoLoadTasks implements Action {
   readonly type = ToDoActionTypes.LoadTasks;
 
-  constructor(payload: any) {}
+  constructor(public payload: any) {}
 }
 
 export class ToDoLoadTasksCompleted implements Action {
   readonly type = ToDoActionTypes.LoadTasksCompleted;
 
-  constructor(payload: any) {}
+  constructor(public payload: any) {}
 }
 
 export class ToDoAddTask implements Action {
   readonly type = ToDoActionTypes.AddTask;
 
-  constructor(payload: any) {}
+  constructor(public payload: any) {}
 }
 
 export class ToDoAddTaskCompleted implements Action {
   readonly type = ToDoActionTypes.AddTaskCompleted;
 
-  constructor(payload: any) {}
+  constructor(public payload: any) {}
 }
 
 export class ToDoRemoveTask implements Action {
   readonly type = ToDoActionTypes.RemoveTask;
 
-  constructor(payload: any) {}
+  constructor(public payload: any) {}
 }
 
 export class ToDoRemoveTaskCompleted implements Action {
   readonly type = ToDoActionTypes.RemoveTaskCompleted;
 
-  constructor(payload: any) {}
+  constructor(public payload: any) {}
 }
 
 export type ToDoActions = ToDoLoadTasks
                         | ToDoLoadTasksCompleted
-                        | ToDoAddTask 
+                        | ToDoAddTask
                         | ToDoAddTaskCompleted
-                        | ToDoRemoveTaskCompleted; 
+                        | ToDoRemoveTaskCompleted;

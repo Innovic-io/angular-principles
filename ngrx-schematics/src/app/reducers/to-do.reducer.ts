@@ -1,6 +1,4 @@
-import { Action } from '@ngrx/store';
-
-import { ToDoActionTypes } from '../actions/to-do.actions'
+import { ToDoActions, ToDoActionTypes } from '../actions/to-do.actions';
 
 export interface State {
   list: string[];
@@ -12,27 +10,26 @@ export const initialState: State = {
   total: 0
 };
 
-export function reducer(state = initialState, action: Action): State {
+export function reducer(state = initialState, action: ToDoActions): State {
   switch (action.type) {
 
     case ToDoActionTypes.LoadTasksCompleted:
-      state.list = action['payload'];
 
       return Object.assign({}, state);
 
     case ToDoActionTypes.AddTaskCompleted:
-      state.list.push(action['payload']);
 
       return Object.assign({}, state, {
+        list: [...state.list, action.payload],
         total: state.total + 1
       });
 
     case ToDoActionTypes.RemoveTaskCompleted:
-      state.list = state.list.filter(item => item !== action['payload'])
 
       return Object.assign({}, state, {
+        list: state.list.filter(item => item !== action.payload),
         total: state.total - 1
-      });  
+      });
 
     default:
       return state;
