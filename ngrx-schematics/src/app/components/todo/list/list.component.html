@@ -1,0 +1,12 @@
+<h3 *ngIf="total === 0; else list" class="text-center">No tasks.</h3>
+<ng-template #list>
+  <h3>There are {{total}} tasks</h3>
+  <ul class="list-group" *ngFor="let task of tasks">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      {{task}}
+      <button class="btn btn-sm btn-danger" (click)="removeTask(task)">
+        Remove
+      </button>
+    </li>
+  </ul>      
+</ng-template>
